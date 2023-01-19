@@ -13,3 +13,12 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+# Go build file
+_build
+*.tar.gz
+
+# IDE
+.vscode
+.idea
+.DS_Store
