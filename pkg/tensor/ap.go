@@ -2,7 +2,7 @@ package tensor
 
 type AP struct {
 	shape   Shape
-	strides []uint
+	strides []int
 }
 
 func NewAP(shape Shape) AP {

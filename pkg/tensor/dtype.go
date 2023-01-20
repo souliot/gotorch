@@ -35,3 +35,7 @@ var (
 	Uintptr       = Dtype{reflect.TypeOf(uintptr(0))}
 	UnsafePointer = Dtype{reflect.TypeOf(unsafe.Pointer(&Uintptr))}
 )
+
+func GetDtype[T DT]() Dtype {
+	return Dtype{reflect.TypeOf(T(1))}
+}

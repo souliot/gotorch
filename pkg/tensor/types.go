@@ -3,10 +3,10 @@ package tensor
 type Tensor interface {
 	// Info
 	Shape() Shape
-	Strides() []uint
+	Strides() []int
 	Dtype() Dtype
-	Dims() uint
-	Size() uint
+	Dims() int
+	Size() int
 	// DataSize() int
 }
 

@@ -9,14 +9,14 @@ import (
 func TestZero(t *testing.T) {
 	tests := []struct {
 		shape Shape
-		size  uint
+		size  int
 	}{
 		{
 			shape: Shape{3},
 			size:  3,
 		},
 		{
-			shape: Shape{1, 3},
+			shape: Shape{3, 1},
 			size:  3,
 		},
 		{
@@ -30,9 +30,10 @@ func TestZero(t *testing.T) {
 	}
 	Convey("Size", t, func() {
 		for _, v := range tests {
-			tensor := Zero(v.shape, Int32)
+			tensor := Zero[int8](v.shape)
 			size := tensor.Size()
 			So(size, ShouldEqual, v.size)
+			t.Log(tensor)
 		}
 
 	})
