@@ -7,6 +7,7 @@ type AP struct {
 
 func NewAP(shape Shape) AP {
 	return AP{
-		shape: shape,
+		shape:   shape,
+		strides: shape.CalcStrides(),
 	}
 }

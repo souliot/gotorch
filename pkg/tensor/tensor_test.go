@@ -33,8 +33,7 @@ func TestZero(t *testing.T) {
 			tensor := Zero[int8](v.shape)
 			size := tensor.Size()
 			So(size, ShouldEqual, v.size)
-			t.Log(tensor)
+			t.Log(tensor, tensor.Strides())
 		}
-
 	})
 }
