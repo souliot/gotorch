@@ -6,6 +6,9 @@ type tensor[T DT] struct {
 }
 
 func (m tensor[T]) String() string {
+	for len(m.shape) <= 1 {
+		return m.array.String()
+	}
 	return m.array.String()
 }
 
@@ -27,6 +30,14 @@ func (m *tensor[T]) Dims() int {
 
 func (m *tensor[T]) Size() int {
 	return m.shape.TotalSize()
+}
+
+func (m *tensor[T]) DataSize() int {
+	return m.hdr.Len
+}
+
+func (m *tensor[T]) IsScalar() bool {
+	return m.shape.IsScalar()
 }
 
 func Zero[T DT](s Shape) Tensor {
