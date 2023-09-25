@@ -33,7 +33,7 @@ func (m *tensor[T]) Size() int {
 }
 
 func (m *tensor[T]) DataSize() int {
-	return m.hdr.Len
+	return m.array.Len()
 }
 
 func (m *tensor[T]) IsScalar() bool {
