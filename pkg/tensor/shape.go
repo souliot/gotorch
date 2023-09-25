@@ -45,3 +45,22 @@ func (s Shape) IsScalarEquiv() bool {
 	}
 	return isEquiv
 }
+
+// IsVector returns whether the access pattern falls into one of three possible definitions of vectors:
+//
+//	vanilla vector (not a row or a col)
+//	column vector
+//	row vector
+func (s Shape) IsVector() bool { return s.IsColVec() || s.IsRowVec() || (len(s) == 1 && s[0] > 1) }
+
+// IsColVec returns true when the access pattern has the shape (x, 1)
+func (s Shape) IsColVec() bool { return len(s) == 2 && (s[1] == 1 && s[0] > 1) }
+
+// IsRowVec returns true when the access pattern has the shape (1, x)
+func (s Shape) IsRowVec() bool { return len(s) == 2 && (s[0] == 1 && s[1] > 1) }
+
+// IsMatrix returns true if it's a matrix. This is mostly a convenience method. RowVec and ColVecs are also considered matrices
+func (s Shape) IsMatrix() bool { return len(s) == 2 }
+
+// Dims returns the number of dimensions in the shape
+func (s Shape) Dims() int { return len(s) }
