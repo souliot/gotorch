@@ -7,7 +7,14 @@ type Tensor interface {
 	Dtype() Dtype
 	Dims() int
 	Size() int
-	// DataSize() int
+	DataSize() int
+	// 标量
+	IsScalar() bool
+	IsVector() bool
+	IsColVec() bool
+	IsRowVec() bool
+	IsMatrix() bool
+	IsZero() bool
 }
 
 type CMP interface {
