@@ -6,9 +6,6 @@ type tensor[T DT] struct {
 }
 
 func (m tensor[T]) String() string {
-	for len(m.shape) <= 1 {
-		return m.array.String()
-	}
 	return m.array.String()
 }
 
